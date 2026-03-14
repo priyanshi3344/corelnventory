@@ -65,7 +65,17 @@
       "type": "receipts",
       "warehouse": "Main Warehouse",
       "status": "Waiting",
-      "eta": "2026-03-14T11:00:00.000Z"
+      "eta": "2026-03-14T11:00:00.000Z",
+      "productId": "p1",
+      "product": "Steel Rod",
+      "quantity": 50,
+      "from": "Vendor",
+      "to": "Main Warehouse",
+      "partnerName": "Acme Metals",
+      "operator": "Receiving desk",
+      "reason": "",
+      "note": "Incoming goods receipt",
+      "createdAt": "2026-03-14T11:00:00.000Z"
     },
     {
       "id": "op2",
@@ -73,7 +83,17 @@
       "type": "delivery",
       "warehouse": "Rack A",
       "status": "Ready",
-      "eta": "2026-03-14T13:00:00.000Z"
+      "eta": "2026-03-14T13:00:00.000Z",
+      "productId": "p2",
+      "product": "Hex Bolt M6",
+      "quantity": -20,
+      "from": "Production Floor",
+      "to": "Customer",
+      "partnerName": "Northwind Retail",
+      "operator": "Shipping desk",
+      "reason": "",
+      "note": "Outgoing delivery order",
+      "createdAt": "2026-03-14T13:00:00.000Z"
     },
     {
       "id": "op3",
@@ -81,7 +101,17 @@
       "type": "internal",
       "warehouse": "Main Warehouse -> Rack B",
       "status": "Draft",
-      "eta": "2026-03-15T09:30:00.000Z"
+      "eta": "2026-03-15T09:30:00.000Z",
+      "productId": "p1",
+      "product": "Steel Rod",
+      "quantity": 25,
+      "from": "Main Warehouse",
+      "to": "Rack B",
+      "partnerName": "",
+      "operator": "Warehouse lead",
+      "reason": "",
+      "note": "Internal stock transfer",
+      "createdAt": "2026-03-15T09:30:00.000Z"
     },
     {
       "id": "op4",
@@ -89,7 +119,17 @@
       "type": "adjustment",
       "warehouse": "Production Floor",
       "status": "Done",
-      "eta": "Completed"
+      "eta": "Completed",
+      "productId": "p1",
+      "product": "Steel Rod",
+      "quantity": -3,
+      "from": "Production Floor",
+      "to": "Damage Loss",
+      "partnerName": "",
+      "operator": "Cycle count team",
+      "reason": "Damaged items",
+      "note": "Stock audit adjustment",
+      "createdAt": "2026-03-14T12:30:00.000Z"
     }
   ],
   "moves": [

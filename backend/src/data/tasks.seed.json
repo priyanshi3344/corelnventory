@@ -1,0 +1,24 @@
+[
+  {
+    "id": "tsk_1001",
+    "title": "Review low stock alerts",
+    "description": "Check products below reorder level and prepare receipt requests.",
+    "status": "todo",
+    "priority": "high",
+    "assignee": "Inventory Manager",
+    "dueDate": "2026-03-16",
+    "createdAt": "2026-03-14T08:00:00.000Z",
+    "updatedAt": "2026-03-14T08:00:00.000Z"
+  },
+  {
+    "id": "tsk_1002",
+    "title": "Validate Rack B transfer entries",
+    "description": "Confirm internal transfer logs for Rack B are complete.",
+    "status": "in_progress",
+    "priority": "medium",
+    "assignee": "Warehouse Staff",
+    "dueDate": "2026-03-17",
+    "createdAt": "2026-03-14T09:30:00.000Z",
+    "updatedAt": "2026-03-14T10:00:00.000Z"
+  }
+]

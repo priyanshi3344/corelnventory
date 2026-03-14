@@ -35,23 +35,35 @@
 				<h1>Products</h1>
 				<p>Create/update products, set categories, UOM, and reorder rules.</p>
 			</div>
-			<button class="ci-btn ci-btn-primary">Save Product</button>
+			<button class="ci-btn ci-btn-primary" id="productSaveShortcut" type="button">Save Product</button>
 		</header>
 
 		<main class="app-content">
 			<section class="form-card">
-				<h2>Create Product</h2>
-				<div class="form-grid">
-					<label>Name<input type="text" placeholder="Steel Rod"></label>
-					<label>SKU / Code<input type="text" placeholder="STL-001"></label>
-					<label>Category
-						<select><option>Metals</option><option>Fasteners</option><option>Tools</option></select>
-					</label>
-					<label>Unit of Measure
-						<select><option>Kg</option><option>Units</option><option>Boxes</option></select>
-					</label>
-					<label>Initial Stock (optional)<input type="number" placeholder="100"></label>
-					<label>Reorder Rule<input type="text" placeholder="Alert below 40 units"></label>
+				<div class="card-head">
+					<h2 id="productFormTitle">Create Product</h2>
+					<button class="ci-btn ci-btn-ghost ci-btn-small is-hidden" id="productCancelEditBtn" type="button">Cancel Edit</button>
+				</div>
+				<div id="productFeedback" class="app-inline-message" aria-live="polite"></div>
+				<form id="productForm" class="form-grid">
+					<input type="hidden" id="productId" name="productId">
+					<label>Name<input type="text" id="productName" name="name" placeholder="Steel Rod" required></label>
+					<label>SKU / Code<input type="text" id="productSku" name="sku" placeholder="STL-001" required></label>
+					<label>Category<input type="text" id="productCategory" name="category" placeholder="Metals" required></label>
+					<label>Unit of Measure<input type="text" id="productUom" name="uom" placeholder="kg" required></label>
+					<label>Initial Stock (optional)<input type="number" id="productInitialStock" name="initialStock" min="0" step="1" placeholder="100"></label>
+					<label>Reorder Level<input type="number" id="productReorderLevel" name="reorderLevel" min="0" step="1" placeholder="40" required></label>
+					<div class="form-actions form-actions-span"><button type="submit" class="ci-btn ci-btn-primary" id="productSubmitBtn">Save Product</button></div>
+				</form>
+			</section>
+
+			<section class="filter-panel">
+				<h2>Product Filters</h2>
+				<div class="filter-grid">
+					<label>Search<input type="text" id="productSearch" placeholder="Search by name, SKU, category"></label>
+					<label>Category<select id="productCategoryFilter"><option value="">All Categories</option></select></label>
+					<label>Stock State<select id="productStockFilter"><option value="">All</option><option value="healthy">Healthy</option><option value="reorder">Reorder Soon</option><option value="low">Low Stock</option></select></label>
+					<label>Warehouse View<select id="productWarehouseView"><option value="all">All Warehouses</option></select></label>
 				</div>
 			</section>
 
@@ -66,15 +78,14 @@
 							<th>Product</th>
 							<th>SKU</th>
 							<th>Category</th>
-							<th>Main Store</th>
-							<th>Production Rack</th>
+							<th id="productsWarehouseHeader1">Main Store</th>
+							<th id="productsWarehouseHeader2">Production Rack</th>
 							<th>Reorder</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr><td>Steel Rod</td><td>STL-001</td><td>Metals</td><td>100 kg</td><td>45 kg</td><td><span class="tag done">Healthy</span></td></tr>
-						<tr><td>Hex Bolt M6</td><td>BOLT-204</td><td>Fasteners</td><td>380 pcs</td><td>62 pcs</td><td><span class="tag waiting">Reorder Soon</span></td></tr>
-						<tr><td>Iron Sheet</td><td>IRS-110</td><td>Metals</td><td>14 pcs</td><td>2 pcs</td><td><span class="tag draft">Low Stock</span></td></tr>
+					<tbody id="productsTableBody">
+						<tr><td colspan="7">Loading products...</td></tr>
 					</tbody>
 				</table>
 			</section>

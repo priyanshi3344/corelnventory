@@ -43,49 +43,43 @@
 				<h2>Dynamic Filters</h2>
 				<div class="filter-grid">
 					<label>Document Type
-						<select>
-							<option>All</option>
-							<option>Receipts</option>
-							<option>Delivery</option>
-							<option>Internal</option>
-							<option>Adjustments</option>
+						<select id="dashboardTypeFilter">
+							<option value="">All</option>
+							<option value="receipts">Receipts</option>
+							<option value="delivery">Delivery</option>
+							<option value="internal">Internal</option>
+							<option value="adjustment">Adjustments</option>
 						</select>
 					</label>
 					<label>Status
-						<select>
-							<option>All</option>
-							<option>Draft</option>
-							<option>Waiting</option>
-							<option>Ready</option>
-							<option>Done</option>
-							<option>Canceled</option>
+						<select id="dashboardStatusFilter">
+							<option value="">All</option>
+							<option value="Draft">Draft</option>
+							<option value="Waiting">Waiting</option>
+							<option value="Ready">Ready</option>
+							<option value="Done">Done</option>
+							<option value="Canceled">Canceled</option>
 						</select>
 					</label>
 					<label>Warehouse
-						<select>
-							<option>All Warehouses</option>
-							<option>Main Warehouse</option>
-							<option>Production Floor</option>
-							<option>Rack B</option>
+						<select id="dashboardWarehouseFilter">
+							<option value="">All Warehouses</option>
 						</select>
 					</label>
 					<label>Product Category
-						<select>
-							<option>All Categories</option>
-							<option>Metals</option>
-							<option>Fasteners</option>
-							<option>Tools</option>
+						<select id="dashboardCategoryFilter">
+							<option value="">All Categories</option>
 						</select>
 					</label>
 				</div>
 			</section>
 
 			<section class="kpi-grid">
-				<article class="app-card"><h3>Total Products in Stock</h3><p>1,248</p></article>
-				<article class="app-card"><h3>Low / Out of Stock Items</h3><p>37</p></article>
-				<article class="app-card"><h3>Pending Receipts</h3><p>12</p></article>
-				<article class="app-card"><h3>Pending Deliveries</h3><p>18</p></article>
-				<article class="app-card"><h3>Internal Transfers Scheduled</h3><p>9</p></article>
+				<article class="app-card"><h3>Total Products in Stock</h3><p id="dashboardTotalStock">-</p></article>
+				<article class="app-card"><h3>Low / Out of Stock Items</h3><p id="dashboardLowStock">-</p></article>
+				<article class="app-card"><h3>Pending Receipts</h3><p id="dashboardPendingReceipts">-</p></article>
+				<article class="app-card"><h3>Pending Deliveries</h3><p id="dashboardPendingDeliveries">-</p></article>
+				<article class="app-card"><h3>Internal Transfers Scheduled</h3><p id="dashboardInternalTransfers">-</p></article>
 			</section>
 
 			<section class="table-card">
@@ -103,11 +97,8 @@
 							<th>ETA</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr><td>RCPT-1042</td><td>Receipts</td><td>Main Warehouse</td><td><span class="tag waiting">Waiting</span></td><td>14 Mar, 11:00</td></tr>
-						<tr><td>DLV-2205</td><td>Delivery</td><td>Rack A</td><td><span class="tag ready">Ready</span></td><td>14 Mar, 13:00</td></tr>
-						<tr><td>INT-3110</td><td>Internal</td><td>Store 1 -> Rack B</td><td><span class="tag draft">Draft</span></td><td>15 Mar, 09:30</td></tr>
-						<tr><td>ADJ-0881</td><td>Adjustment</td><td>Production Floor</td><td><span class="tag done">Done</span></td><td>Completed</td></tr>
+					<tbody id="dashboardQueueBody">
+						<tr><td colspan="5">Loading dashboard...</td></tr>
 					</tbody>
 				</table>
 			</section>

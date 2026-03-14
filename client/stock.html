@@ -33,60 +33,187 @@
 			<button class="menu-btn" onclick="toggleSidebar()">Menu</button>
 			<div>
 				<h1>Operations</h1>
-				<p>Receipts, Delivery Orders, Inventory Adjustment, and Internal Transfers.</p>
+				<p>Run receipts, delivery orders, internal transfers, and stock adjustments from one workflow board.</p>
 			</div>
 			<a class="ci-btn ci-btn-primary" href="orders.html">Open Move History</a>
 		</header>
 
 		<main class="app-content">
-			<section class="operation-grid">
-				<article class="operation-card">
-					<h2>1. Receipts (Incoming Goods)</h2>
-					<p>Used when items arrive from vendors.</p>
-					<ol>
-						<li>Create receipt</li>
-						<li>Add supplier and products</li>
-						<li>Input received quantity</li>
-						<li>Validate to increase stock</li>
-					</ol>
-					<small>Example: Receive 50 units of Steel Rods -> stock +50.</small>
-				</article>
+			<section class="kpi-grid kpi-grid-compact" id="operationsSummaryCards">
+				<article class="app-card"><h3>Tracked Products</h3><p id="opsTotalProducts">-</p></article>
+				<article class="app-card"><h3>Open Documents</h3><p id="opsOpenDocuments">-</p></article>
+				<article class="app-card"><h3>Moves Logged Today</h3><p id="opsMovesToday">-</p></article>
+			</section>
 
-				<article class="operation-card">
-					<h2>2. Delivery Orders (Outgoing Goods)</h2>
-					<p>Used when stock leaves warehouse for shipment.</p>
-					<ol>
-						<li>Pick items</li>
-						<li>Pack items</li>
-						<li>Validate to decrease stock</li>
-					</ol>
-					<small>Example: Sales order 10 chairs -> stock -10.</small>
-				</article>
+			<section class="operation-workspace">
+				<section class="operation-panel">
+					<div class="card-head">
+						<h2>Operation Workspace</h2>
+						<span class="status-note">Each validation updates stock and writes to move history.</span>
+					</div>
+					<p class="panel-copy">The flow below follows the document: create the document, fill product details, and validate the movement.</p>
+					<div id="operationsFeedback" class="app-inline-message" aria-live="polite"></div>
 
-				<article class="operation-card">
-					<h2>3. Internal Transfers</h2>
-					<p>Move stock between locations inside company.</p>
-					<ul>
-						<li>Main Warehouse -> Production Floor</li>
-						<li>Rack A -> Rack B</li>
-						<li>Warehouse 1 -> Warehouse 2</li>
-					</ul>
-					<small>Every movement is logged in move ledger.</small>
-				</article>
+					<div class="operation-grid operation-grid-detailed">
+						<article class="operation-card operation-card-action">
+							<div class="operation-card-head">
+								<h2>1. Receipts</h2>
+								<span class="pill pill-positive">Incoming</span>
+							</div>
+							<p>Use when items arrive from vendors. Validate to increase stock automatically.</p>
+							<ol>
+								<li>Create a receipt</li>
+								<li>Add supplier and product</li>
+								<li>Input received quantity</li>
+								<li>Validate receipt</li>
+							</ol>
+							<form id="receiptForm" class="form-grid form-grid-compact">
+								<label>Supplier<input type="text" name="partnerName" placeholder="Acme Metals"></label>
+								<label>Product<select name="productId" class="product-select" data-role="product"></select></label>
+								<label>Destination Warehouse<select name="to" class="warehouse-select" data-role="warehouse"></select></label>
+								<label>Quantity<input type="number" name="quantity" min="1" step="1" placeholder="50"></label>
+								<label>Status<select name="status"><option value="waiting">Waiting</option><option value="ready">Ready</option><option value="done">Done</option><option value="draft">Draft</option></select></label>
+								<label>Operator<input type="text" name="operator" placeholder="Receiving desk"></label>
+								<div class="form-actions form-actions-span"><button type="submit" class="ci-btn ci-btn-primary">Validate Receipt</button></div>
+							</form>
+						</article>
 
-				<article class="operation-card">
-					<h2>4. Stock Adjustments</h2>
-					<p>Fix mismatch between recorded and physical stock.</p>
-					<ul>
-						<li>Select product/location</li>
-						<li>Enter counted quantity</li>
-						<li>System updates stock and logs adjustment</li>
-					</ul>
-					<small>Includes reason and operator for audit trail.</small>
-				</article>
+						<article class="operation-card operation-card-action">
+							<div class="operation-card-head">
+								<h2>2. Delivery Orders</h2>
+								<span class="pill pill-alert">Outgoing</span>
+							</div>
+							<p>Pick and pack stock for shipment. Validation decreases stock from the selected source location.</p>
+							<ol>
+								<li>Pick items from stock</li>
+								<li>Pack items for shipment</li>
+								<li>Validate delivery order</li>
+							</ol>
+							<form id="deliveryForm" class="form-grid form-grid-compact">
+								<label>Customer<input type="text" name="partnerName" placeholder="Northwind Retail"></label>
+								<label>Product<select name="productId" class="product-select" data-role="product"></select></label>
+								<label>Source Warehouse<select name="from" class="warehouse-select" data-role="warehouse"></select></label>
+								<label>Quantity<input type="number" name="quantity" min="1" step="1" placeholder="10"></label>
+								<label>Status<select name="status"><option value="ready">Ready</option><option value="done">Done</option><option value="waiting">Waiting</option><option value="draft">Draft</option></select></label>
+								<label>Operator<input type="text" name="operator" placeholder="Shipping desk"></label>
+								<div class="form-actions form-actions-span"><button type="submit" class="ci-btn ci-btn-primary">Validate Delivery</button></div>
+							</form>
+						</article>
+
+						<article class="operation-card operation-card-action">
+							<div class="operation-card-head">
+								<h2>3. Internal Transfers</h2>
+								<span class="pill pill-neutral">Internal</span>
+							</div>
+							<p>Move stock between company locations. Each transfer is logged in the ledger.</p>
+							<ul>
+								<li>Main Warehouse -> Production Floor</li>
+								<li>Rack A -> Rack B</li>
+								<li>Warehouse 1 -> Warehouse 2</li>
+							</ul>
+							<form id="transferForm" class="form-grid form-grid-compact">
+								<label>Product<select name="productId" class="product-select" data-role="product"></select></label>
+								<label>From<select name="from" class="warehouse-select" data-role="warehouse"></select></label>
+								<label>To<select name="to" class="warehouse-select" data-role="warehouse"></select></label>
+								<label>Quantity<input type="number" name="quantity" min="1" step="1" placeholder="25"></label>
+								<label>Status<select name="status"><option value="draft">Draft</option><option value="ready">Ready</option><option value="done">Done</option><option value="waiting">Waiting</option></select></label>
+								<label>Operator<input type="text" name="operator" placeholder="Warehouse lead"></label>
+								<div class="form-actions form-actions-span"><button type="submit" class="ci-btn ci-btn-primary">Validate Transfer</button></div>
+							</form>
+						</article>
+
+						<article class="operation-card operation-card-action">
+							<div class="operation-card-head">
+								<h2>4. Stock Adjustments</h2>
+								<span class="pill pill-dark">Audit</span>
+							</div>
+							<p>Fix mismatches between physical and recorded stock. Reason and operator stay on the audit trail.</p>
+							<ul>
+								<li>Select product and location</li>
+								<li>Enter positive or negative adjustment quantity</li>
+								<li>Validate adjustment</li>
+							</ul>
+							<form id="adjustmentForm" class="form-grid form-grid-compact">
+								<label>Product<select name="productId" class="product-select" data-role="product"></select></label>
+								<label>Location<select name="from" class="warehouse-select" data-role="warehouse"></select></label>
+								<label>Adjustment Qty<input type="number" name="quantity" step="1" placeholder="-3 or 12"></label>
+								<label>Status<select name="status"><option value="done">Done</option><option value="waiting">Waiting</option><option value="draft">Draft</option></select></label>
+								<label>Reason<input type="text" name="reason" placeholder="Damaged items"></label>
+								<label>Operator<input type="text" name="operator" placeholder="Cycle count team"></label>
+								<div class="form-actions form-actions-span"><button type="submit" class="ci-btn ci-btn-primary">Validate Adjustment</button></div>
+							</form>
+						</article>
+					</div>
+				</section>
+
+				<aside class="operation-sidepanel">
+					<section class="operation-card operation-mini-card">
+						<h2>Document Checklist</h2>
+						<div class="flow-steps">
+							<article><h3>Create</h3><p>Choose the operation type and start a document from the correct workflow card.</p></article>
+							<article><h3>Validate</h3><p>Receipts increase stock, deliveries decrease stock, transfers move stock, adjustments correct stock.</p></article>
+							<article><h3>Trace</h3><p>Every validated movement is written to move history for reporting and review.</p></article>
+						</div>
+					</section>
+
+					<section class="operation-card operation-mini-card">
+						<h2>Live Stock Snapshot</h2>
+						<div id="stockSnapshot" class="stock-snapshot-list"></div>
+					</section>
+				</aside>
+			</section>
+
+			<section class="table-card">
+				<div class="card-head">
+					<h2>Recent Operations Queue</h2>
+					<a href="orders.html">Open full move history</a>
+				</div>
+				<table class="app-table">
+					<thead>
+						<tr>
+							<th>Document</th>
+							<th>Type</th>
+							<th>Product</th>
+							<th>Route</th>
+							<th>Qty</th>
+							<th>Status</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody id="operationsQueueBody">
+						<tr><td colspan="7">Loading operations...</td></tr>
+					</tbody>
+				</table>
 			</section>
 		</main>
 	</section>
+</div>
+
+<div class="app-modal-backdrop" id="operationEditModal" aria-hidden="true">
+	<div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="operationEditTitle">
+		<div class="card-head">
+			<h2 id="operationEditTitle">Edit Operation</h2>
+			<button type="button" class="table-btn" id="operationModalCloseBtn">Close</button>
+		</div>
+		<div id="operationModalFeedback" class="app-inline-message" aria-live="polite"></div>
+		<form id="operationEditForm" class="form-grid form-grid-compact">
+			<input type="hidden" id="operationEditId" name="id">
+			<label>Reference<input type="text" id="operationEditRef" name="ref" readonly></label>
+			<label>Status
+				<select id="operationEditStatus" name="status" required>
+					<option value="Draft">Draft</option>
+					<option value="Waiting">Waiting</option>
+					<option value="Ready">Ready</option>
+					<option value="Done">Done</option>
+				</select>
+			</label>
+			<label>Partner<input type="text" id="operationEditPartner" name="partnerName"></label>
+			<label>Operator<input type="text" id="operationEditOperator" name="operator"></label>
+			<label>Reason<input type="text" id="operationEditReason" name="reason"></label>
+			<label>Note<input type="text" id="operationEditNote" name="note"></label>
+			<div class="form-actions form-actions-span"><button type="submit" class="ci-btn ci-btn-primary" id="operationEditSubmitBtn">Update Operation</button></div>
+		</form>
+	</div>
 </div>
 
 <script src="script.js"></script>
