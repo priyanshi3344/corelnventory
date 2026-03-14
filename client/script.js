@@ -58,8 +58,8 @@ async function loginUser(event){
 			return;
 		}
 
-		localStorage.setItem("coreinventory_token", data.token || "");
-		localStorage.setItem("coreinventory_user", JSON.stringify(data.user || {}));
+		localStorage.setItem("stocksmith_token", data.token || "");
+		localStorage.setItem("stocksmith_user", JSON.stringify(data.user || {}));
 		window.location.href = "dashboard.html";
 	} catch (_error) {
 		showAuthMessage("Cannot reach the server. Please check your connection.", "error");
@@ -97,8 +97,8 @@ async function signupUser(){
 			return;
 		}
 
-		localStorage.setItem("coreinventory_token", data.token || "");
-		localStorage.setItem("coreinventory_user", JSON.stringify(data.user || {}));
+		localStorage.setItem("stocksmith_token", data.token || "");
+		localStorage.setItem("stocksmith_user", JSON.stringify(data.user || {}));
 		showAuthMessage("Account created successfully. Redirecting...", "success");
 		window.location.href = "dashboard.html";
 	} catch (_error) {
@@ -136,21 +136,21 @@ async function requestPasswordReset(){
 }
 
 function requireAuth(){
-	var token = localStorage.getItem("coreinventory_token");
+	var token = localStorage.getItem("stocksmith_token");
 	if (!token){
 		window.location.replace("login.html");
 	}
 }
 
 function logout(){
-	localStorage.removeItem("coreinventory_token");
-	localStorage.removeItem("coreinventory_user");
+	localStorage.removeItem("stocksmith_token");
+	localStorage.removeItem("stocksmith_user");
 	window.location.href = "login.html";
 }
 
 function getStoredUser(){
 	try {
-		return JSON.parse(localStorage.getItem("coreinventory_user") || "{}") || {};
+		return JSON.parse(localStorage.getItem("stocksmith_user") || "{}") || {};
 	} catch (_error) {
 		return {};
 	}
@@ -187,7 +187,7 @@ async function initProfilePage(){
 			email: user.email || "",
 			role: String(document.getElementById("profileRole").value || "").trim()
 		};
-		localStorage.setItem("coreinventory_user", JSON.stringify(nextUser));
+		localStorage.setItem("stocksmith_user", JSON.stringify(nextUser));
 		user = nextUser;
 		fillProfileFields(user);
 		setInlineMessage("profileFeedback", "Profile details saved locally.", "success");
@@ -1178,7 +1178,7 @@ function exportMovesCsv(mode){
 	var url = URL.createObjectURL(blob);
 	var link = document.createElement("a");
 	link.href = url;
-	link.download = "coreinventory-moves-" + new Date().toISOString().slice(0, 10) + ".csv";
+	link.download = "stocksmith-moves-" + new Date().toISOString().slice(0, 10) + ".csv";
 	document.body.appendChild(link);
 	link.click();
 	document.body.removeChild(link);
