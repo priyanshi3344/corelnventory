@@ -250,13 +250,13 @@ body.landing-page{
 }
 
 .ci-btn-primary{
-	color:#fff;
-	background:linear-gradient(130deg, var(--ci-primary), #9dc7be);
-	box-shadow:0 10px 24px rgba(95, 147, 136, 0.28);
+	color:#f4fffc;
+	background:linear-gradient(130deg, #4f8479, #2f5a54);
+	box-shadow:0 10px 24px rgba(47, 90, 84, 0.34);
 }
 
 .ci-btn-primary:hover{
-	background:linear-gradient(130deg, var(--ci-primary-dark), #4d7f75);
+	background:linear-gradient(130deg, #3f7268, #274b46);
 }
 
 .ci-btn-ghost{

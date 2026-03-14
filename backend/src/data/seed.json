@@ -1,0 +1,158 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "Core Manager",
+      "email": "manager@coreinventory.com",
+      "password": "demo123",
+      "role": "Inventory Manager"
+    }
+  ],
+  "warehouses": [
+    "Main Warehouse",
+    "Production Floor",
+    "Rack A",
+    "Rack B"
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Steel Rod",
+      "sku": "STL-001",
+      "category": "Metals",
+      "uom": "kg",
+      "reorderLevel": 40,
+      "stockByLocation": {
+        "Main Warehouse": 100,
+        "Production Floor": 45,
+        "Rack A": 0,
+        "Rack B": 0
+      }
+    },
+    {
+      "id": "p2",
+      "name": "Hex Bolt M6",
+      "sku": "BOLT-204",
+      "category": "Fasteners",
+      "uom": "pcs",
+      "reorderLevel": 100,
+      "stockByLocation": {
+        "Main Warehouse": 380,
+        "Production Floor": 62,
+        "Rack A": 0,
+        "Rack B": 0
+      }
+    },
+    {
+      "id": "p3",
+      "name": "Iron Sheet",
+      "sku": "IRS-110",
+      "category": "Metals",
+      "uom": "pcs",
+      "reorderLevel": 20,
+      "stockByLocation": {
+        "Main Warehouse": 14,
+        "Production Floor": 2,
+        "Rack A": 0,
+        "Rack B": 0
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "op1",
+      "ref": "RCPT-1042",
+      "type": "receipts",
+      "warehouse": "Main Warehouse",
+      "status": "Waiting",
+      "eta": "2026-03-14T11:00:00.000Z"
+    },
+    {
+      "id": "op2",
+      "ref": "DLV-2205",
+      "type": "delivery",
+      "warehouse": "Rack A",
+      "status": "Ready",
+      "eta": "2026-03-14T13:00:00.000Z"
+    },
+    {
+      "id": "op3",
+      "ref": "INT-3110",
+      "type": "internal",
+      "warehouse": "Main Warehouse -> Rack B",
+      "status": "Draft",
+      "eta": "2026-03-15T09:30:00.000Z"
+    },
+    {
+      "id": "op4",
+      "ref": "ADJ-0881",
+      "type": "adjustment",
+      "warehouse": "Production Floor",
+      "status": "Done",
+      "eta": "Completed"
+    }
+  ],
+  "moves": [
+    {
+      "id": "m1",
+      "ref": "RCPT-1042",
+      "operation": "Receipt",
+      "product": "Steel Rod",
+      "from": "Vendor",
+      "to": "Main Warehouse",
+      "qty": 50,
+      "status": "Done",
+      "type": "receipts",
+      "warehouse": "Main Warehouse",
+      "createdAt": "2026-03-14T11:05:00.000Z"
+    },
+    {
+      "id": "m2",
+      "ref": "INT-3110",
+      "operation": "Transfer",
+      "product": "Steel Rod",
+      "from": "Main Warehouse",
+      "to": "Production Floor",
+      "qty": 0,
+      "status": "Ready",
+      "type": "internal",
+      "warehouse": "Main Warehouse",
+      "createdAt": "2026-03-14T11:25:00.000Z"
+    },
+    {
+      "id": "m3",
+      "ref": "DLV-2205",
+      "operation": "Delivery",
+      "product": "Steel Frame",
+      "from": "Production Floor",
+      "to": "Customer",
+      "qty": -20,
+      "status": "Done",
+      "type": "delivery",
+      "warehouse": "Production Floor",
+      "createdAt": "2026-03-14T12:10:00.000Z"
+    },
+    {
+      "id": "m4",
+      "ref": "ADJ-0881",
+      "operation": "Adjustment",
+      "product": "Steel Rod",
+      "from": "Production Floor",
+      "to": "Damage Loss",
+      "qty": -3,
+      "status": "Waiting",
+      "type": "adjustment",
+      "warehouse": "Production Floor",
+      "createdAt": "2026-03-14T12:30:00.000Z"
+    }
+  ],
+  "settings": {
+    "alerts": {
+      "lowStock": 14,
+      "outOfStock": 3
+    },
+    "multiWarehouse": 3,
+    "skuSearchAccuracy": 99.1,
+    "version": "1.0.0"
+  }
+}
