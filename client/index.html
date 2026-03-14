@@ -13,21 +13,21 @@
 <header class="ci-topbar">
 	<a class="ci-logo" href="index.html">CoreInventory</a>
 	<nav class="ci-nav">
+		<a href="#about">About</a>
 		<a href="#features">Features</a>
 		<a href="#workflows">How It Works</a>
-		<a href="#pricing">Pricing</a>
-		<a href="#about">About</a>
+		
 	</nav>
-	<div class="ci-user-block">
-		<span class="ci-avatar">CI</span>
-		<span>core team</span>
+	<div class="ci-auth-links">
+		<a class="ci-auth-signup" href="login.html">Sign up</a>
+		<a class="ci-auth-login" href="login.html">Login</a>
 	</div>
 </header>
 
 <main>
 	<section class="ci-hero" id="about">
 		<div class="ci-hero-inner">
-			<p class="ci-badge">Hackathon Build: Modular Inventory Management System</p>
+			<p class="ci-badge">Modular Inventory Management System</p>
 			<h1>Replace Manual Registers,<br><span>Run Inventory in Real Time</span></h1>
 			<p class="ci-subtext">
 				CoreInventory digitizes stock operations for inventory managers and warehouse staff.
@@ -35,7 +35,6 @@
 			</p>
 			<div class="ci-cta-row">
 				<a href="login.html" class="ci-btn ci-btn-primary">Start Free Trial</a>
-				<a href="dashboard.html" class="ci-btn ci-btn-ghost">Watch Demo</a>
 			</div>
 			<div class="ci-stats">
 				<article class="ci-stat-card">
@@ -59,51 +58,55 @@
 	</section>
 
 	<section class="ci-features" id="features">
-		<div class="ci-section-head">
-			<p>Features</p>
-			<h2>Core Features from problem statement</h2>
-			<span>Authentication, KPI dashboard, product management, and stock operation workflows.</span>
-		</div>
-		<div class="ci-feature-grid">
-			<article class="ci-feature-card">
-				<h3>Authentication and Access</h3>
-				<p>Secure sign-in and OTP-based password reset with direct redirect to Dashboard.</p>
-			</article>
-			<article class="ci-feature-card">
-				<h3>Dynamic Dashboard Filters</h3>
-				<p>Filter by document type, status, warehouse location, and product category in real time.</p>
-			</article>
-			<article class="ci-feature-card">
-				<h3>Operations and Move Ledger</h3>
-				<p>Manage receipts, delivery orders, transfers, adjustments, and full stock movement history.</p>
-			</article>
+		<div class="ci-section-box">
+			<div class="ci-section-head">
+				<p>Features</p>
+				<h2>Core Features from problem statement</h2>
+				<span>Authentication, KPI dashboard, product management, and stock operation workflows.</span>
+			</div>
+			<div class="ci-feature-grid">
+				<article class="ci-feature-card">
+					<h3>Authentication and Access</h3>
+					<p>Secure sign-in and OTP-based password reset with direct redirect to Dashboard.</p>
+				</article>
+				<article class="ci-feature-card">
+					<h3>Dynamic Dashboard Filters</h3>
+					<p>Filter by document type, status, warehouse location, and product category in real time.</p>
+				</article>
+				<article class="ci-feature-card">
+					<h3>Operations and Move Ledger</h3>
+					<p>Manage receipts, delivery orders, transfers, adjustments, and full stock movement history.</p>
+				</article>
+			</div>
 		</div>
 	</section>
 
 	<section class="ci-pricing" id="pricing">
-		<div class="ci-section-head">
-			<p>Workflows</p>
-			<h2>How stock flows in CoreInventory</h2>
-		</div>
-		<div class="ci-price-grid" id="workflows">
-			<article class="ci-plan">
-				<h3>Receive</h3>
-				<p class="ci-plan-price">Step 1</p>
-				<p>Create receipt, add vendor items, validate incoming quantity to increase stock.</p>
-				<a href="stock.html" class="ci-btn ci-btn-ghost">Open Receipts</a>
-			</article>
-			<article class="ci-plan ci-plan-featured">
-				<h3>Move and Deliver</h3>
-				<p class="ci-plan-price">Step 2-3</p>
-				<p>Transfer stock internally, then pick-pack-deliver goods to customer orders.</p>
-				<a href="orders.html" class="ci-btn ci-btn-primary">View Move History</a>
-			</article>
-			<article class="ci-plan">
-				<h3>Adjust and Audit</h3>
-				<p class="ci-plan-price">Step 4</p>
-				<p>Adjust mismatched stock and capture complete audit trail for warehouse control.</p>
-				<a href="reports.html" class="ci-btn ci-btn-ghost">Open Insights</a>
-			</article>
+		<div class="ci-section-box">
+			<div class="ci-section-head">
+				<p>Workflows</p>
+				<h2>How stock flows in CoreInventory</h2>
+			</div>
+			<div class="ci-price-grid" id="workflows" style="scroll-margin-top:110px">
+				<article class="ci-plan">
+					<h3>Receive</h3>
+					<p class="ci-plan-price">Step 1</p>
+					<p>Create receipt, add vendor items, validate incoming quantity to increase stock.</p>
+					<a href="stock.html" class="ci-btn ci-btn-ghost">Open Receipts</a>
+				</article>
+				<article class="ci-plan ci-plan-featured">
+					<h3>Move and Deliver</h3>
+					<p class="ci-plan-price">Step 2-3</p>
+					<p>Transfer stock internally, then pick-pack-deliver goods to customer orders.</p>
+					<a href="orders.html" class="ci-btn ci-btn-primary">View Move History</a>
+				</article>
+				<article class="ci-plan">
+					<h3>Adjust and Audit</h3>
+					<p class="ci-plan-price">Step 4</p>
+					<p>Adjust mismatched stock and capture complete audit trail for warehouse control.</p>
+					<a href="reports.html" class="ci-btn ci-btn-ghost">Open Insights</a>
+				</article>
+			</div>
 		</div>
 	</section>
 </main>

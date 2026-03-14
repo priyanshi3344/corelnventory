@@ -152,27 +152,39 @@ body.landing-page{
 	color:var(--ci-primary);
 }
 
-.ci-user-block{
+.ci-auth-links{
 	display:flex;
 	align-items:center;
 	gap:10px;
-	color:#394761;
 	font-weight:700;
 }
 
-.ci-avatar{
-	width:36px;
-	height:36px;
-	border-radius:50%;
-	display:grid;
-	place-items:center;
-	color:#fff;
-	font-size:12px;
-	background:linear-gradient(150deg, #a7ccc4, #6e9f95);
+.ci-auth-signup,
+.ci-auth-login{
+	text-decoration:none;
+	padding:10px 14px;
+	border-radius:999px;
+	font-size:14px;
+}
+
+.ci-auth-signup{
+	color:#37595b;
+	background:#eaf5f2;
+	border:1px solid #c9dfd9;
+}
+
+.ci-auth-login{
+	color:#f5fbf9;
+	background:linear-gradient(130deg, #4f8479, #2f5a54);
+}
+
+.ci-auth-signup:hover,
+.ci-auth-login:hover{
+	filter:brightness(0.97);
 }
 
 .ci-hero{
-	padding:68px 0 24px;
+	padding:34px 0 16px;
 }
 
 .ci-hero-inner,
@@ -186,8 +198,8 @@ body.landing-page{
 
 .ci-hero-inner{
 	border:1px solid rgba(173, 186, 214, 0.6);
-	border-radius:34px;
-	padding:46px 34px 36px;
+	border-radius:26px;
+	padding:30px 24px 24px;
 	text-align:center;
 	background:linear-gradient(115deg, rgba(246, 252, 250, 0.96), rgba(251, 255, 254, 0.9));
 	box-shadow:0 18px 45px rgba(36, 56, 92, 0.08);
@@ -195,21 +207,21 @@ body.landing-page{
 }
 
 .ci-badge{
-	margin:0 auto 20px;
+	margin:0 auto 14px;
 	width:fit-content;
 	border:1px solid #cde6df;
 	background:#ebf6f2;
 	color:#3f756b;
 	border-radius:999px;
-	padding:9px 18px;
-	font-size:15px;
+	padding:7px 14px;
+	font-size:13px;
 	font-weight:800;
 }
 
 .ci-hero h1{
 	margin:0;
 	font-family:"Space Grotesk", "Segoe UI", sans-serif;
-	font-size:clamp(38px, 6.7vw, 74px);
+	font-size:clamp(30px, 5vw, 58px);
 	line-height:1.04;
 	letter-spacing:-0.03em;
 }
@@ -219,15 +231,15 @@ body.landing-page{
 }
 
 .ci-subtext{
-	max-width:760px;
-	margin:24px auto 0;
+	max-width:660px;
+	margin:16px auto 0;
 	color:var(--ci-muted);
-	font-size:clamp(17px, 2vw, 32px);
+	font-size:clamp(14px, 1.45vw, 24px);
 	line-height:1.55;
 }
 
 .ci-cta-row{
-	margin-top:30px;
+	margin-top:20px;
 	display:flex;
 	justify-content:center;
 	gap:14px;
@@ -270,17 +282,17 @@ body.landing-page{
 }
 
 .ci-stats{
-	margin-top:34px;
+	margin-top:14px;
 	display:grid;
 	grid-template-columns:repeat(4, 1fr);
-	gap:16px;
+	gap:10px;
 }
 
 .ci-stat-card{
 	border:1px solid #d3dceb;
 	background:var(--ci-surface);
-	border-radius:22px;
-	padding:24px 16px;
+	border-radius:18px;
+	padding:14px 14px;
 	opacity:0;
 	animation:ci-fade-up 0.5s ease forwards;
 }
@@ -291,26 +303,40 @@ body.landing-page{
 
 .ci-stat-card h3{
 	margin:0;
-	font-size:40px;
+	font-size:26px;
 	line-height:1;
 	color:#203154;
 }
 
 .ci-stat-card p{
-	margin:10px 0 0;
-	font-size:18px;
+	margin:4px 0 0;
+	font-size:13px;
 	color:#5d6a84;
 	font-weight:700;
 }
 
+.ci-hero,
 .ci-features,
 .ci-pricing{
-	margin-top:56px;
+	scroll-margin-top:110px;
+}
+
+.ci-features,
+.ci-pricing{
+	margin-top:28px;
+}
+
+.ci-section-box{
+	border:1px solid rgba(173, 186, 214, 0.6);
+	border-radius:26px;
+	padding:24px;
+	background:linear-gradient(115deg, rgba(246, 252, 250, 0.96), rgba(251, 255, 254, 0.9));
+	box-shadow:0 18px 45px rgba(36, 56, 92, 0.08);
 }
 
 .ci-section-head{
 	text-align:center;
-	margin-bottom:24px;
+	margin-bottom:16px;
 }
 
 .ci-section-head p{
@@ -323,17 +349,17 @@ body.landing-page{
 }
 
 .ci-section-head h2{
-	margin:10px 0 0;
+	margin:6px 0 0;
 	font-family:"Space Grotesk", "Segoe UI", sans-serif;
-	font-size:clamp(32px, 4.8vw, 56px);
+	font-size:clamp(22px, 3vw, 36px);
 	letter-spacing:-0.02em;
 }
 
 .ci-section-head span{
 	display:block;
-	margin-top:12px;
+	margin-top:6px;
 	color:#677490;
-	font-size:20px;
+	font-size:15px;
 }
 
 .ci-feature-grid,
@@ -345,37 +371,38 @@ body.landing-page{
 
 .ci-feature-card,
 .ci-plan{
-	border:1px solid #d4ddee;
-	background:linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(245, 248, 255, 0.84));
+	border:1px solid rgba(173, 186, 214, 0.6);
+	background:linear-gradient(115deg, rgba(246, 252, 250, 0.96), rgba(251, 255, 254, 0.9));
 	border-radius:26px;
-	padding:30px;
-	min-height:230px;
+	padding:22px 22px;
+	min-height:0;
+	box-shadow:0 18px 45px rgba(36, 56, 92, 0.08);
 }
 
 .ci-feature-card h3,
 .ci-plan h3{
 	margin:0;
 	font-family:"Space Grotesk", "Segoe UI", sans-serif;
-	font-size:32px;
+	font-size:22px;
 	letter-spacing:-0.01em;
 }
 
 .ci-feature-card p,
 .ci-plan p{
-	margin:14px 0 0;
-	font-size:21px;
+	margin:8px 0 0;
+	font-size:15px;
 	line-height:1.55;
 	color:#5f6d86;
 }
 
 .ci-plan{
-	min-height:310px;
+	min-height:0;
 }
 
 .ci-plan-price{
-	margin:16px 0 0;
+	margin:8px 0 0;
 	color:#203154;
-	font-size:48px;
+	font-size:28px;
 	font-weight:800;
 	line-height:1;
 }
@@ -387,18 +414,18 @@ body.landing-page{
 }
 
 .ci-plan .ci-btn{
-	margin-top:22px;
+	margin-top:14px;
 	display:inline-block;
 }
 
 .ci-plan-featured{
-	border-color:#b9ddd4;
-	box-shadow:0 18px 34px rgba(95, 147, 136, 0.17);
+	border-color:rgba(127, 179, 168, 0.7);
+	box-shadow:0 18px 45px rgba(36, 56, 92, 0.08);
 }
 
 .ci-footer{
-	margin-top:70px;
-	padding:50px 0 20px;
+	margin-top:36px;
+	padding:28px 0 16px;
 	border-top:1px solid #d3dcec;
 	background:linear-gradient(110deg, #f7fcfb 4%, #f2f8f6 50%, #ffffff 96%);
 }
@@ -410,25 +437,25 @@ body.landing-page{
 }
 
 .ci-footer-grid h4{
-	margin:0 0 12px;
+	margin:0 0 8px;
 	font-family:"Space Grotesk", "Segoe UI", sans-serif;
-	font-size:30px;
+	font-size:18px;
 }
 
 .ci-footer-grid p{
-	margin:16px 0 0;
+	margin:8px 0 0;
 	max-width:460px;
 	color:#586a84;
-	font-size:19px;
-	line-height:1.55;
+	font-size:14px;
+	line-height:1.5;
 }
 
 .ci-footer-grid a{
 	display:block;
-	margin-bottom:11px;
+	margin-bottom:6px;
 	color:#3d4f69;
 	text-decoration:none;
-	font-size:19px;
+	font-size:14px;
 }
 
 .ci-footer-grid a:hover{
@@ -454,14 +481,14 @@ body.landing-page{
 }
 
 .ci-footer-bottom{
-	margin-top:34px;
+	margin-top:18px;
 	border-top:1px solid #d5deee;
-	padding-top:18px;
+	padding-top:12px;
 	display:flex;
 	justify-content:space-between;
 	gap:20px;
 	color:#697995;
-	font-size:17px;
+	font-size:13px;
 }
 
 @keyframes ci-rise{
@@ -508,8 +535,14 @@ body.landing-page{
 		font-size:14px;
 	}
 
-	.ci-user-block span:last-child{
-		display:none;
+	.ci-auth-links{
+		gap:6px;
+	}
+
+	.ci-auth-signup,
+	.ci-auth-login{
+		padding:8px 10px;
+		font-size:12px;
 	}
 
 	.ci-hero{
