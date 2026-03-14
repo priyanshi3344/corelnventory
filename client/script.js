@@ -785,6 +785,8 @@ function startProductEdit(productId){
 	document.getElementById("productCancelEditBtn").classList.remove("is-hidden");
 	document.getElementById("productSubmitBtn").textContent = "Update Product";
 	setInlineMessage("productFeedback", "Editing " + product.name + ". Initial stock is used only for new products.", "success");
+	var formCard = document.getElementById("productForm").closest(".form-card");
+	if (formCard) { formCard.scrollIntoView({ behavior: "smooth", block: "start" }); }
 }
 
 async function refreshProductsPage(){

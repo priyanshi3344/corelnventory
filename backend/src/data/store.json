@@ -60,7 +60,7 @@
       "stockByLocation": {
         "Main Warehouse": 380,
         "Production Floor": 62,
-        "Rack A": 5,
+        "Rack A": 0,
         "Rack B": 0
       }
     },
@@ -124,6 +124,24 @@
     }
   ],
   "operations": [
+    {
+      "id": "op_1773478755936_130",
+      "ref": "DLV-1460",
+      "type": "delivery",
+      "warehouse": "Rack A",
+      "status": "Done",
+      "eta": "2026-03-14T08:59:15.936Z",
+      "productId": "p2",
+      "product": "Hex Bolt M6",
+      "quantity": -5,
+      "from": "Rack A",
+      "to": "me",
+      "partnerName": "me",
+      "operator": "shipping desk",
+      "reason": "",
+      "note": "Outgoing delivery order",
+      "createdAt": "2026-03-14T08:59:15.936Z"
+    },
     {
       "id": "op_1773476120140_103",
       "ref": "INT-8256",
@@ -342,6 +360,24 @@
     }
   ],
   "moves": [
+    {
+      "id": "mv_1773478755936_450",
+      "ref": "DLV-1460",
+      "operation": "Delivery",
+      "product": "Hex Bolt M6",
+      "productId": "p2",
+      "from": "Rack A",
+      "to": "me",
+      "qty": -5,
+      "status": "Done",
+      "type": "delivery",
+      "warehouse": "Rack A",
+      "createdAt": "2026-03-14T08:59:15.936Z",
+      "partnerName": "me",
+      "operator": "shipping desk",
+      "reason": "",
+      "note": "Outgoing delivery order"
+    },
     {
       "id": "mv_1773476120140_695",
       "ref": "INT-8256",
