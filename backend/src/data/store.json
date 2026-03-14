@@ -577,11 +577,11 @@
   ],
   "settings": {
     "alerts": {
-      "lowStock": 44,
-      "outOfStock": 34
+      "lowStock": 20,
+      "outOfStock": 5
     },
     "multiWarehouse": 4,
-    "skuSearchAccuracy": 99.1,
+    "skuSearchAccuracy": 98.8,
     "version": "1.0.0"
   }
 }
