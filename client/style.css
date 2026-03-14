@@ -1228,6 +1228,9 @@ body.app-page{
 	font-size:16px;
 	color:#4d5c77;
 	font-weight:700;
+	min-height:2.6em;
+	display:flex;
+	align-items:flex-start;
 }
 
 .app-card p{

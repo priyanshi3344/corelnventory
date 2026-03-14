@@ -11,12 +11,11 @@
 </head>
 <body class="landing-page">
 <header class="ci-topbar">
-	<a class="ci-logo" href="index.html">CoreInventory</a>
+	<a class="ci-logo" href="index.html">Stocksmith</a>
 	<nav class="ci-nav">
-		<a href="#problem">Problem</a>
-		<a href="#dashboard">Dashboard</a>
+		<a href="#about">About</a>
 		<a href="#modules">Modules</a>
-		<a href="#flow">Flow</a>
+		<a href="#flow">Workflow</a>
 	</nav>
 	<div class="ci-auth-links">
 		<a class="ci-auth-signup" href="signup.html">Sign up</a>
@@ -25,17 +24,16 @@
 </header>
 
 <main>
-	<section class="ci-hero" id="problem">
+	<section class="ci-hero" id="about">
 		<div class="ci-hero-inner">
-			<p class="ci-badge">Hackathon Problem Statement</p>
-			<h1>Replace Manual Registers,<br><span>Run Inventory in Real Time</span></h1>
+			<p class="ci-badge">Metals &amp; Smooth Inventory Flow</p>
+			<h1>Built for Metals,<br><span>Engineered for Accuracy</span></h1>
 			<p class="ci-subtext">
-				Stocksmith is a modular inventory system that replaces paper logs, spreadsheets,
-				and scattered tracking tools with one centralized and real-time app.
+				Stocksmith is purpose-built for metals warehouses — tracking steel, aluminium, and raw
+				materials in real time with zero manual registers or spreadsheets.
 			</p>
 			<div class="ci-cta-row">
 				<a href="signup.html" class="ci-btn ci-btn-primary">Start Free Trial</a>
-				<a href="dashboard.html" class="ci-btn ci-btn-ghost">View Dashboard Demo</a>
 			</div>
 			<div class="ci-stats">
 				<article class="ci-stat-card">
@@ -54,52 +52,6 @@
 					<h3>18</h3>
 					<p>Pending Deliveries</p>
 				</article>
-			</div>
-		</div>
-	</section>
-
-	<section class="ci-features" id="dashboard">
-		<div class="ci-section-box">
-			<div class="ci-section-head">
-				<p>Target Users and Access</p>
-				<h2>Built for Managers and Warehouse Teams</h2>
-				<span>Fast onboarding with direct entry into the operational dashboard.</span>
-			</div>
-			<div class="ci-user-grid">
-				<article class="ci-user-card">
-					<h3>Inventory Managers</h3>
-					<p>Monitor incoming and outgoing stock, KPI health, and warehouse status.</p>
-				</article>
-				<article class="ci-user-card">
-					<h3>Warehouse Staff</h3>
-					<p>Execute transfers, picking, shelving, counting, and movement validation.</p>
-				</article>
-				<article class="ci-user-card">
-					<h3>Authentication Flow</h3>
-					<p>Signup/login, OTP-based password reset, and redirect to dashboard view.</p>
-				</article>
-			</div>
-		</div>
-	</section>
-
-	<section class="ci-features" id="features">
-		<div class="ci-section-box">
-			<div class="ci-section-head">
-				<p>Dashboard View</p>
-				<h2>Operational Snapshot with Dynamic Filters</h2>
-				<span>Track stock health and document queues from one decision layer.</span>
-			</div>
-			<div class="ci-kpi-grid">
-				<article class="ci-kpi-card"><h3>Total Products in Stock</h3><p>Live quantity across all products</p></article>
-				<article class="ci-kpi-card"><h3>Low / Out of Stock</h3><p>Alerts for refill and reorder actions</p></article>
-				<article class="ci-kpi-card"><h3>Pending Receipts</h3><p>Incoming goods waiting for validation</p></article>
-				<article class="ci-kpi-card"><h3>Pending Deliveries</h3><p>Orders ready for pick-pack-dispatch</p></article>
-				<article class="ci-kpi-card"><h3>Internal Transfers</h3><p>Scheduled movement between locations</p></article>
-			</div>
-			<div class="ci-filter-list">
-				<span>Filter by document type: Receipts / Delivery / Internal / Adjustments</span>
-				<span>Filter by status: Draft / Waiting / Ready / Done / Canceled</span>
-				<span>Filter by warehouse, location, and product category</span>
 			</div>
 		</div>
 	</section>
@@ -137,29 +89,29 @@
 	<section class="ci-pricing" id="flow">
 		<div class="ci-section-box">
 			<div class="ci-section-head">
-				<p>Simplified Example Flow</p>
-				<h2>Receive -&gt; Move -&gt; Deliver -&gt; Adjust</h2>
+				<p>Simplified Example Workflow</p>
+				<h2>Receive &rarr; Move &rarr; Deliver &rarr; Adjust</h2>
 			</div>
 			<div class="ci-flow-grid" id="workflows" style="scroll-margin-top:110px">
 				<article class="ci-flow-step">
 					<p class="ci-flow-number">Step 1</p>
 					<h3>Receive Goods from Vendor</h3>
-					<p>Example: Receive 100 kg steel -&gt; stock +100</p>
+					<p>Example: Receive 500 kg steel coil from vendor — stock +500 kg, lot tracked.</p>
 				</article>
 				<article class="ci-flow-step">
 					<p class="ci-flow-number">Step 2</p>
 					<h3>Move to Production Rack</h3>
-					<p>Internal transfer Main Store -&gt; Production Rack, total stock unchanged.</p>
+					<p>Move steel from Main Store to Cutting Floor — location updated, total stock unchanged.</p>
 				</article>
 				<article class="ci-flow-step">
 					<p class="ci-flow-number">Step 3</p>
 					<h3>Deliver Finished Goods</h3>
-					<p>Example: Deliver 20 units -&gt; stock -20 from dispatch location.</p>
+					<p>Example: Dispatch 20 aluminium sheets to client — stock -20, delivery order logged.</p>
 				</article>
 				<article class="ci-flow-step">
 					<p class="ci-flow-number">Step 4</p>
 					<h3>Adjust Damaged Items</h3>
-					<p>Example: 3 kg damaged -&gt; stock -3, logged to stock ledger.</p>
+					<p>Example: 3 kg damaged during handling — stock -3, reason logged to ledger.</p>
 				</article>
 			</div>
 			<div class="ci-extra-list">
@@ -168,8 +120,8 @@
 			</div>
 			<div class="ci-cta-banner">
 				<div>
-					<h3>Ready for Demo</h3>
-					<p>Open live modules and present your hackathon flow end-to-end.</p>
+					<h3>Your Warehouse, Fully Under Control</h3>
+					<p>From receiving raw metals to dispatching finished goods — every movement tracked in one place.</p>
 				</div>
 				<div class="ci-cta-actions">
 					<a href="dashboard.html" class="ci-btn ci-btn-primary">Launch Dashboard</a>
@@ -184,7 +136,7 @@
 	<div class="ci-footer-grid">
 		<div>
 			<a class="ci-logo" href="index.html">Stocksmith</a>
-			<p>Modular inventory platform replacing manual registers, sheets, and scattered stock tracking.</p>
+			<p>Purpose-built for metals warehouses — track steel, aluminium, and raw materials with real-time precision.</p>
 			<div class="ci-socials">
 				<span>T</span>
 				<span>G</span>
@@ -200,14 +152,14 @@
 		</div>
 		<div>
 			<h4>Company</h4>
-			<a href="#problem">About</a>
+			<a href="#about">About</a>
 			<a href="#workflows">How It Works</a>
 			<a href="#">Privacy Policy</a>
 			<a href="#">Terms of Service</a>
 		</div>
 	</div>
 	<div class="ci-footer-bottom">
-		<p>© 2026 Stocksmith. Hackathon frontend prototype.</p>
+		<p>© 2026 Stocksmith. All rights reserved.</p>
 		<p>Version 1.0.0</p>
 	</div>
 </footer>
