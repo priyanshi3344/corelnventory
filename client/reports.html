@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoreInventory | Insights & Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+<div class="app-shell">
+	<aside class="app-sidebar" id="appSidebar">
+		<a href="index.html" class="app-logo">CoreInventory</a>
+		<p class="side-caption">Settings and Reports</p>
+		<nav class="side-nav">
+			<a href="dashboard.html">Dashboard</a>
+			<a href="products.html">Products</a>
+			<a href="stock.html">Operations</a>
+			<a href="orders.html">Move History</a>
+			<a class="active" href="reports.html">Setting / Warehouse</a>
+		</nav>
+		<div class="side-profile">
+			<h4>Profile Menu</h4>
+			<a href="#">My Profile</a>
+			<a href="login.html">Logout</a>
+		</div>
+	</aside>
+
+	<section class="app-main">
+		<header class="app-topbar">
+			<button class="menu-btn" onclick="toggleSidebar()">Menu</button>
+			<div>
+				<h1>Warehouse Settings and Insights</h1>
+				<p>Alerts, multi-warehouse controls, and inventory flow understanding.</p>
+			</div>
+			<button class="ci-btn ci-btn-primary">Save Settings</button>
+		</header>
+
+		<main class="app-content">
+			<section class="kpi-grid kpi-grid-compact">
+				<article class="app-card"><h3>Low Stock Alerts</h3><p>14 active alerts</p></article>
+				<article class="app-card"><h3>Multi-Warehouse</h3><p>3 locations online</p></article>
+				<article class="app-card"><h3>SKU Search Accuracy</h3><p>99.1%</p></article>
+			</section>
+
+			<section class="table-card">
+				<div class="card-head">
+					<h2>Simplified Inventory Flow</h2>
+				</div>
+				<div class="flow-steps">
+					<article>
+						<h3>Step 1: Receive Goods</h3>
+						<p>Receive 100 kg steel from vendor -> stock +100 in Main Store.</p>
+					</article>
+					<article>
+						<h3>Step 2: Internal Transfer</h3>
+						<p>Move stock Main Store -> Production Rack, quantity unchanged overall.</p>
+					</article>
+					<article>
+						<h3>Step 3: Delivery</h3>
+						<p>Dispatch 20 steel units to customer -> finished goods stock -20.</p>
+					</article>
+					<article>
+						<h3>Step 4: Adjustment</h3>
+						<p>Record 3 kg damaged item -> stock -3, logged in ledger.</p>
+					</article>
+				</div>
+			</section>
+		</main>
+	</section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

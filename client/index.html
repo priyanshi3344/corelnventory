@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoreInventory | Intelligent Inventory Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="landing-page">
+<header class="ci-topbar">
+	<a class="ci-logo" href="index.html">CoreInventory</a>
+	<nav class="ci-nav">
+		<a href="#features">Features</a>
+		<a href="#workflows">How It Works</a>
+		<a href="#pricing">Pricing</a>
+		<a href="#about">About</a>
+	</nav>
+	<div class="ci-user-block">
+		<span class="ci-avatar">CI</span>
+		<span>core team</span>
+	</div>
+</header>
+
+<main>
+	<section class="ci-hero" id="about">
+		<div class="ci-hero-inner">
+			<p class="ci-badge">Hackathon Build: Modular Inventory Management System</p>
+			<h1>Replace Manual Registers,<br><span>Run Inventory in Real Time</span></h1>
+			<p class="ci-subtext">
+				CoreInventory digitizes stock operations for inventory managers and warehouse staff.
+				Track receipts, deliveries, transfers, and adjustments from one easy-to-use dashboard.
+			</p>
+			<div class="ci-cta-row">
+				<a href="login.html" class="ci-btn ci-btn-primary">Start Free Trial</a>
+				<a href="dashboard.html" class="ci-btn ci-btn-ghost">Watch Demo</a>
+			</div>
+			<div class="ci-stats">
+				<article class="ci-stat-card">
+					<h3>1,248</h3>
+					<p>Total Products in Stock</p>
+				</article>
+				<article class="ci-stat-card">
+					<h3>37</h3>
+					<p>Low / Out of Stock</p>
+				</article>
+				<article class="ci-stat-card">
+					<h3>12</h3>
+					<p>Pending Receipts</p>
+				</article>
+				<article class="ci-stat-card">
+					<h3>18</h3>
+					<p>Pending Deliveries</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="ci-features" id="features">
+		<div class="ci-section-head">
+			<p>Features</p>
+			<h2>Core Features from problem statement</h2>
+			<span>Authentication, KPI dashboard, product management, and stock operation workflows.</span>
+		</div>
+		<div class="ci-feature-grid">
+			<article class="ci-feature-card">
+				<h3>Authentication and Access</h3>
+				<p>Secure sign-in and OTP-based password reset with direct redirect to Dashboard.</p>
+			</article>
+			<article class="ci-feature-card">
+				<h3>Dynamic Dashboard Filters</h3>
+				<p>Filter by document type, status, warehouse location, and product category in real time.</p>
+			</article>
+			<article class="ci-feature-card">
+				<h3>Operations and Move Ledger</h3>
+				<p>Manage receipts, delivery orders, transfers, adjustments, and full stock movement history.</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="ci-pricing" id="pricing">
+		<div class="ci-section-head">
+			<p>Workflows</p>
+			<h2>How stock flows in CoreInventory</h2>
+		</div>
+		<div class="ci-price-grid" id="workflows">
+			<article class="ci-plan">
+				<h3>Receive</h3>
+				<p class="ci-plan-price">Step 1</p>
+				<p>Create receipt, add vendor items, validate incoming quantity to increase stock.</p>
+				<a href="stock.html" class="ci-btn ci-btn-ghost">Open Receipts</a>
+			</article>
+			<article class="ci-plan ci-plan-featured">
+				<h3>Move and Deliver</h3>
+				<p class="ci-plan-price">Step 2-3</p>
+				<p>Transfer stock internally, then pick-pack-deliver goods to customer orders.</p>
+				<a href="orders.html" class="ci-btn ci-btn-primary">View Move History</a>
+			</article>
+			<article class="ci-plan">
+				<h3>Adjust and Audit</h3>
+				<p class="ci-plan-price">Step 4</p>
+				<p>Adjust mismatched stock and capture complete audit trail for warehouse control.</p>
+				<a href="reports.html" class="ci-btn ci-btn-ghost">Open Insights</a>
+			</article>
+		</div>
+	</section>
+</main>
+
+<footer class="ci-footer">
+	<div class="ci-footer-grid">
+		<div>
+			<a class="ci-logo" href="index.html">CoreInventory</a>
+			<p>Modular inventory platform replacing manual registers, sheets, and scattered stock tracking.</p>
+			<div class="ci-socials">
+				<span>T</span>
+				<span>G</span>
+				<span>in</span>
+			</div>
+		</div>
+		<div>
+			<h4>Product</h4>
+			<a href="#features">Features</a>
+			<a href="#pricing">Workflows</a>
+			<a href="dashboard.html">Dashboard</a>
+			<a href="login.html">Login</a>
+		</div>
+		<div>
+			<h4>Company</h4>
+			<a href="#about">About</a>
+			<a href="#workflows">How It Works</a>
+			<a href="#">Privacy Policy</a>
+			<a href="#">Terms of Service</a>
+		</div>
+	</div>
+	<div class="ci-footer-bottom">
+		<p>© 2026 CoreInventory. Hackathon frontend prototype.</p>
+		<p>Version 1.0.0</p>
+	</div>
+</footer>
+</body>
+</html>

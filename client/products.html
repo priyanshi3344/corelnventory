@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoreInventory | Products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+<div class="app-shell">
+	<aside class="app-sidebar" id="appSidebar">
+		<a href="index.html" class="app-logo">CoreInventory</a>
+		<p class="side-caption">Product Management</p>
+		<nav class="side-nav">
+			<a href="dashboard.html">Dashboard</a>
+			<a class="active" href="products.html">Products</a>
+			<a href="stock.html">Operations</a>
+			<a href="orders.html">Move History</a>
+			<a href="reports.html">Setting / Warehouse</a>
+		</nav>
+		<div class="side-profile">
+			<h4>Profile Menu</h4>
+			<a href="#">My Profile</a>
+			<a href="login.html">Logout</a>
+		</div>
+	</aside>
+
+	<section class="app-main">
+		<header class="app-topbar">
+			<button class="menu-btn" onclick="toggleSidebar()">Menu</button>
+			<div>
+				<h1>Products</h1>
+				<p>Create/update products, set categories, UOM, and reorder rules.</p>
+			</div>
+			<button class="ci-btn ci-btn-primary">Save Product</button>
+		</header>
+
+		<main class="app-content">
+			<section class="form-card">
+				<h2>Create Product</h2>
+				<div class="form-grid">
+					<label>Name<input type="text" placeholder="Steel Rod"></label>
+					<label>SKU / Code<input type="text" placeholder="STL-001"></label>
+					<label>Category
+						<select><option>Metals</option><option>Fasteners</option><option>Tools</option></select>
+					</label>
+					<label>Unit of Measure
+						<select><option>Kg</option><option>Units</option><option>Boxes</option></select>
+					</label>
+					<label>Initial Stock (optional)<input type="number" placeholder="100"></label>
+					<label>Reorder Rule<input type="text" placeholder="Alert below 40 units"></label>
+				</div>
+			</section>
+
+			<section class="table-card">
+				<div class="card-head">
+					<h2>Stock Availability per Location</h2>
+					<a href="orders.html">View Ledger</a>
+				</div>
+				<table class="app-table">
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>SKU</th>
+							<th>Category</th>
+							<th>Main Store</th>
+							<th>Production Rack</th>
+							<th>Reorder</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>Steel Rod</td><td>STL-001</td><td>Metals</td><td>100 kg</td><td>45 kg</td><td><span class="tag done">Healthy</span></td></tr>
+						<tr><td>Hex Bolt M6</td><td>BOLT-204</td><td>Fasteners</td><td>380 pcs</td><td>62 pcs</td><td><span class="tag waiting">Reorder Soon</span></td></tr>
+						<tr><td>Iron Sheet</td><td>IRS-110</td><td>Metals</td><td>14 pcs</td><td>2 pcs</td><td><span class="tag draft">Low Stock</span></td></tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

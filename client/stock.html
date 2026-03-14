@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoreInventory | Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+<div class="app-shell">
+	<aside class="app-sidebar" id="appSidebar">
+		<a href="index.html" class="app-logo">CoreInventory</a>
+		<p class="side-caption">Operations</p>
+		<nav class="side-nav">
+			<a href="dashboard.html">Dashboard</a>
+			<a href="products.html">Products</a>
+			<a class="active" href="stock.html">Operations</a>
+			<a href="orders.html">Move History</a>
+			<a href="reports.html">Setting / Warehouse</a>
+		</nav>
+		<div class="side-profile">
+			<h4>Profile Menu</h4>
+			<a href="#">My Profile</a>
+			<a href="login.html">Logout</a>
+		</div>
+	</aside>
+
+	<section class="app-main">
+		<header class="app-topbar">
+			<button class="menu-btn" onclick="toggleSidebar()">Menu</button>
+			<div>
+				<h1>Operations</h1>
+				<p>Receipts, Delivery Orders, Inventory Adjustment, and Internal Transfers.</p>
+			</div>
+			<a class="ci-btn ci-btn-primary" href="orders.html">Open Move History</a>
+		</header>
+
+		<main class="app-content">
+			<section class="operation-grid">
+				<article class="operation-card">
+					<h2>1. Receipts (Incoming Goods)</h2>
+					<p>Used when items arrive from vendors.</p>
+					<ol>
+						<li>Create receipt</li>
+						<li>Add supplier and products</li>
+						<li>Input received quantity</li>
+						<li>Validate to increase stock</li>
+					</ol>
+					<small>Example: Receive 50 units of Steel Rods -> stock +50.</small>
+				</article>
+
+				<article class="operation-card">
+					<h2>2. Delivery Orders (Outgoing Goods)</h2>
+					<p>Used when stock leaves warehouse for shipment.</p>
+					<ol>
+						<li>Pick items</li>
+						<li>Pack items</li>
+						<li>Validate to decrease stock</li>
+					</ol>
+					<small>Example: Sales order 10 chairs -> stock -10.</small>
+				</article>
+
+				<article class="operation-card">
+					<h2>3. Internal Transfers</h2>
+					<p>Move stock between locations inside company.</p>
+					<ul>
+						<li>Main Warehouse -> Production Floor</li>
+						<li>Rack A -> Rack B</li>
+						<li>Warehouse 1 -> Warehouse 2</li>
+					</ul>
+					<small>Every movement is logged in move ledger.</small>
+				</article>
+
+				<article class="operation-card">
+					<h2>4. Stock Adjustments</h2>
+					<p>Fix mismatch between recorded and physical stock.</p>
+					<ul>
+						<li>Select product/location</li>
+						<li>Enter counted quantity</li>
+						<li>System updates stock and logs adjustment</li>
+					</ul>
+					<small>Includes reason and operator for audit trail.</small>
+				</article>
+			</section>
+		</main>
+	</section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
