@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoreInventory | My Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+<div class="app-shell">
+	<aside class="app-sidebar" id="appSidebar">
+		<a href="index.html" class="app-logo">CoreInventory</a>
+		<p class="side-caption">Profile</p>
+		<nav class="side-nav">
+			<a href="dashboard.html">Dashboard</a>
+			<a href="products.html">Products</a>
+			<a href="stock.html">Operations</a>
+			<a href="orders.html">Move History</a>
+			<a href="reports.html">Setting / Warehouse</a>
+		</nav>
+		<div class="side-profile">
+			<h4>Profile Menu</h4>
+			<a class="active" href="profile.html">My Profile</a>
+			<a href="#" onclick="logout(); return false;">Logout</a>
+		</div>
+	</aside>
+
+	<section class="app-main">
+		<header class="app-topbar">
+			<button class="menu-btn" onclick="toggleSidebar()">Menu</button>
+			<div>
+				<h1>My Profile</h1>
+				<p>View your account details and quick workspace activity.</p>
+			</div>
+			<a class="ci-btn ci-btn-primary" href="reports.html">Open Reports</a>
+		</header>
+
+		<main class="app-content">
+			<section class="kpi-grid kpi-grid-compact">
+				<article class="app-card"><h3>Open Tasks</h3><p id="profileOpenTasks">-</p></article>
+				<article class="app-card"><h3>Products Tracked</h3><p id="profileProducts">-</p></article>
+				<article class="app-card"><h3>Open Operations</h3><p id="profileOpenOperations">-</p></article>
+			</section>
+
+			<section class="operation-workspace">
+				<section class="operation-panel">
+					<section class="form-card">
+						<div class="card-head">
+							<h2>Account Details</h2>
+						</div>
+						<div id="profileFeedback" class="app-inline-message" aria-live="polite"></div>
+						<form id="profileForm" class="form-grid form-grid-compact">
+							<label>Full Name<input type="text" id="profileName" placeholder="Your name" required></label>
+							<label>Email<input type="email" id="profileEmail" readonly></label>
+							<label>Role<input type="text" id="profileRole" placeholder="Inventory Manager"></label>
+							<label>User ID<input type="text" id="profileUserId" readonly></label>
+							<div class="form-actions form-actions-span"><button type="submit" class="ci-btn ci-btn-primary" id="profileSaveBtn">Save Profile</button></div>
+						</form>
+					</section>
+				</section>
+
+				<aside class="operation-sidepanel">
+					<section class="operation-card operation-mini-card">
+						<h2>Profile Summary</h2>
+						<div class="flow-steps">
+							<article><h3 id="profileSummaryName">-</h3><p id="profileSummaryEmail">-</p></article>
+							<article><h3>Quick Access</h3><p>Use Reports to review settings, warehouse metrics, and team activity.</p></article>
+						</div>
+					</section>
+				</aside>
+			</section>
+		</main>
+	</section>
+</div>
+
+<script src="script.js"></script>
+<script>requireAuth();</script>
+</body>
+</html>

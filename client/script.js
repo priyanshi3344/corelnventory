@@ -148,6 +148,78 @@ function logout(){
 	window.location.href = "login.html";
 }
 
+function getStoredUser(){
+	try {
+		return JSON.parse(localStorage.getItem("coreinventory_user") || "{}") || {};
+	} catch (_error) {
+		return {};
+	}
+}
+
+function fillProfileFields(user){
+	var nameInput = document.getElementById("profileName");
+	var emailInput = document.getElementById("profileEmail");
+	var roleInput = document.getElementById("profileRole");
+	var idInput = document.getElementById("profileUserId");
+	if (nameInput) { nameInput.value = user.name || ""; }
+	if (emailInput) { emailInput.value = user.email || ""; }
+	if (roleInput) { roleInput.value = user.role || ""; }
+	if (idInput) { idInput.value = user.id || ""; }
+
+	var nameSummary = document.getElementById("profileSummaryName");
+	var emailSummary = document.getElementById("profileSummaryEmail");
+	if (nameSummary) { nameSummary.textContent = user.name || "Workspace User"; }
+	if (emailSummary) { emailSummary.textContent = user.email || "No email available"; }
+}
+
+async function initProfilePage(){
+	var form = document.getElementById("profileForm");
+	if (!form) { return; }
+
+	var user = getStoredUser();
+	fillProfileFields(user);
+
+	form.addEventListener("submit", function(event){
+		event.preventDefault();
+		var nextUser = {
+			id: user.id || "",
+			name: String(document.getElementById("profileName").value || "").trim(),
+			email: user.email || "",
+			role: String(document.getElementById("profileRole").value || "").trim()
+		};
+		localStorage.setItem("coreinventory_user", JSON.stringify(nextUser));
+		user = nextUser;
+		fillProfileFields(user);
+		setInlineMessage("profileFeedback", "Profile details saved locally.", "success");
+	});
+
+	try {
+		var results = await Promise.all([
+			apiRequest("/tasks"),
+			apiRequest("/products"),
+			apiRequest("/operations")
+		]);
+
+		var tasks = results[0] || [];
+		var products = results[1] || [];
+		var operations = results[2] || [];
+		var openTasks = tasks.filter(function(task){ return task.status !== "done"; }).length;
+		var openOperations = operations.filter(function(op){ return !["Done", "Canceled"].includes(op.status); }).length;
+
+		var openTasksEl = document.getElementById("profileOpenTasks");
+		var productsEl = document.getElementById("profileProducts");
+		var operationsEl = document.getElementById("profileOpenOperations");
+		if (openTasksEl) { openTasksEl.textContent = String(openTasks); }
+		if (productsEl) { productsEl.textContent = String(products.length); }
+		if (operationsEl) { operationsEl.textContent = String(openOperations); }
+	} catch (_error) {
+		["profileOpenTasks", "profileProducts", "profileOpenOperations"].forEach(function(id){
+			var node = document.getElementById(id);
+			if (node) { node.textContent = "-"; }
+		});
+	}
+}
+
 function toggleSidebar(){
 	document.body.classList.toggle("body-menu-open");
 }
@@ -1431,6 +1503,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	initDashboardPage().catch(function(){ return null; });
 	initProductsPage().catch(function(){ return null; });
 	initReportsPage().catch(function(){ return null; });
+	initProfilePage().catch(function(){ return null; });
 });
 
 document.addEventListener("click", function(event){

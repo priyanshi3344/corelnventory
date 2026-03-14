@@ -1101,6 +1101,7 @@ body.app-page{
 
 .side-nav a.active,
 .side-nav a:hover,
+.side-profile a.active,
 .side-profile a:hover{
 	background:#365d58;
 }

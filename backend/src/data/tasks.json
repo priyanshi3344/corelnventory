@@ -26,10 +26,10 @@
     "title": "Validate Rack B transfer entries",
     "description": "Confirm internal transfer logs for Rack B are complete.",
     "status": "in_progress",
-    "priority": "medium",
+    "priority": "low",
     "assignee": "Warehouse Staff",
     "dueDate": "2026-03-17",
     "createdAt": "2026-03-14T09:30:00.000Z",
-    "updatedAt": "2026-03-14T10:00:00.000Z"
+    "updatedAt": "2026-03-14T09:05:14.433Z"
   }
 ]
