@@ -45,7 +45,7 @@
       "reorderLevel": 40,
       "stockByLocation": {
         "Main Warehouse": 85,
-        "Production Floor": 60,
+        "Production Floor": 65,
         "Rack A": 0,
         "Rack B": 0
       }
@@ -59,7 +59,7 @@
       "reorderLevel": 100,
       "stockByLocation": {
         "Main Warehouse": 380,
-        "Production Floor": 56,
+        "Production Floor": 62,
         "Rack A": 5,
         "Rack B": 0
       }
@@ -88,9 +88,85 @@
       "stockByLocation": {
         "Main Warehouse": 10
       }
+    },
+    {
+      "id": "prd_1773475755815_427",
+      "name": "steel rod",
+      "sku": "wsdf",
+      "category": "metal",
+      "uom": "kg",
+      "reorderLevel": 3,
+      "stockByLocation": {
+        "Main Warehouse": 55
+      }
+    },
+    {
+      "id": "prd_1773476183819_187",
+      "name": "fdgh",
+      "sku": "stl 0001",
+      "category": "metal",
+      "uom": "kg",
+      "reorderLevel": 3,
+      "stockByLocation": {
+        "Main Warehouse": 15
+      }
     }
   ],
   "operations": [
+    {
+      "id": "op_1773476120140_103",
+      "ref": "INT-8256",
+      "type": "internal",
+      "warehouse": "Production Floor -> Rack B",
+      "status": "Canceled",
+      "eta": "2026-03-14T08:15:20.140Z",
+      "productId": "p2",
+      "product": "Hex Bolt M6",
+      "quantity": 6,
+      "from": "Production Floor",
+      "to": "Rack B",
+      "partnerName": "",
+      "operator": "",
+      "reason": "",
+      "note": "Internal stock transfer | Canceled",
+      "createdAt": "2026-03-14T08:15:20.140Z"
+    },
+    {
+      "id": "op_1773476101983_434",
+      "ref": "RCPT-1592",
+      "type": "receipts",
+      "warehouse": "Production Floor",
+      "status": "Ready",
+      "eta": "2026-03-14T08:15:01.983Z",
+      "productId": "p2",
+      "product": "Hex Bolt M6",
+      "quantity": 6,
+      "from": "Vendor",
+      "to": "Production Floor",
+      "partnerName": "mert",
+      "operator": "",
+      "reason": "",
+      "note": "Incoming goods receipt",
+      "createdAt": "2026-03-14T08:15:01.983Z"
+    },
+    {
+      "id": "op_1773475732197_832",
+      "ref": "RCPT-6737",
+      "type": "receipts",
+      "warehouse": "Production Floor",
+      "status": "Ready",
+      "eta": "2026-03-14T08:08:52.197Z",
+      "productId": "p1",
+      "product": "Steel Rod",
+      "quantity": 5,
+      "from": "Vendor",
+      "to": "Production Floor",
+      "partnerName": "mert",
+      "operator": "",
+      "reason": "",
+      "note": "Incoming goods receipt",
+      "createdAt": "2026-03-14T08:08:52.197Z"
+    },
     {
       "id": "op_1773474758167_825",
       "ref": "RCPT-4692",
@@ -256,6 +332,60 @@
   ],
   "moves": [
     {
+      "id": "mv_1773476120140_695",
+      "ref": "INT-8256",
+      "operation": "Transfer",
+      "product": "Hex Bolt M6",
+      "productId": "p2",
+      "from": "Production Floor",
+      "to": "Rack B",
+      "qty": 6,
+      "status": "Canceled",
+      "type": "internal",
+      "warehouse": "Production Floor -> Rack B",
+      "createdAt": "2026-03-14T08:15:20.140Z",
+      "partnerName": "",
+      "operator": "",
+      "reason": "",
+      "note": "Internal stock transfer | Canceled"
+    },
+    {
+      "id": "mv_1773476101983_447",
+      "ref": "RCPT-1592",
+      "operation": "Receipt",
+      "product": "Hex Bolt M6",
+      "productId": "p2",
+      "from": "Vendor",
+      "to": "Production Floor",
+      "qty": 6,
+      "status": "Ready",
+      "type": "receipts",
+      "warehouse": "Production Floor",
+      "createdAt": "2026-03-14T08:15:01.983Z",
+      "partnerName": "mert",
+      "operator": "",
+      "reason": "",
+      "note": "Incoming goods receipt"
+    },
+    {
+      "id": "mv_1773475732197_67",
+      "ref": "RCPT-6737",
+      "operation": "Receipt",
+      "product": "Steel Rod",
+      "productId": "p1",
+      "from": "Vendor",
+      "to": "Production Floor",
+      "qty": 5,
+      "status": "Ready",
+      "type": "receipts",
+      "warehouse": "Production Floor",
+      "createdAt": "2026-03-14T08:08:52.197Z",
+      "partnerName": "mert",
+      "operator": "",
+      "reason": "",
+      "note": "Incoming goods receipt"
+    },
+    {
       "id": "mv_1773474758167_952",
       "ref": "RCPT-4692",
       "operation": "Receipt",
@@ -400,8 +530,8 @@
   ],
   "settings": {
     "alerts": {
-      "lowStock": 14,
-      "outOfStock": 3
+      "lowStock": 44,
+      "outOfStock": 34
     },
     "multiWarehouse": 4,
     "skuSearchAccuracy": 99.1,
