@@ -1431,17 +1431,14 @@ async function initReportsPage(){
 
 	var results = await Promise.all([
 		apiRequest("/reports/overview"),
-		apiRequest("/settings/warehouses"),
-		apiRequest("/tasks")
+		apiRequest("/settings/warehouses")
 	]);
 
 	appState.reportSettings = results[0] || {};
 	appState.warehouses = (results[1] && results[1].warehouses) || [];
-	appState.tasks = results[2] || [];
 
 	renderReportsKpis(appState.reportSettings, appState.warehouses.length);
 	fillReportsSettingsForm(appState.reportSettings, appState.warehouses);
-	renderTasksTable(getFilteredTasks());
 
 	var settingsForm = document.getElementById("reportsSettingsForm");
 	if (settingsForm) {
@@ -1452,11 +1449,16 @@ async function initReportsPage(){
 	if (saveBtn) {
 		saveBtn.addEventListener("click", submitReportsSettings);
 	}
+}
+
+async function initWarehouseTasksPage(){
+	if (!document.getElementById("taskForm")) { return; }
+
+	appState.tasks = await apiRequest("/tasks");
+	renderTasksTable(getFilteredTasks());
 
 	var taskForm = document.getElementById("taskForm");
-	if (taskForm) {
-		taskForm.addEventListener("submit", submitTaskForm);
-	}
+	taskForm.addEventListener("submit", submitTaskForm);
 
 	var taskCancelEditBtn = document.getElementById("taskCancelEditBtn");
 	if (taskCancelEditBtn) {
@@ -1503,6 +1505,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	initDashboardPage().catch(function(){ return null; });
 	initProductsPage().catch(function(){ return null; });
 	initReportsPage().catch(function(){ return null; });
+	initWarehouseTasksPage().catch(function(){ return null; });
 	initProfilePage().catch(function(){ return null; });
 });
 

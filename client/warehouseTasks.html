@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoreInventory | Warehouse Task</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+<div class="app-shell">
+	<aside class="app-sidebar" id="appSidebar">
+		<a href="index.html" class="app-logo">CoreInventory</a>
+		<p class="side-caption">Warehouse Task</p>
+		<nav class="side-nav">
+			<a href="dashboard.html">Dashboard</a>
+			<a href="products.html">Products</a>
+			<a href="stock.html">Operations</a>
+			<a href="orders.html">Move History</a>
+			<a class="active" href="warehouseTasks.html">Warehouse Task</a>
+			<a href="reports.html">Setting</a>
+		</nav>
+		<div class="side-profile">
+			<h4>Profile Menu</h4>
+			<a href="profile.html">My Profile</a>
+			<a href="#" onclick="logout(); return false;">Logout</a>
+		</div>
+	</aside>
+
+	<section class="app-main">
+		<header class="app-topbar">
+			<button class="menu-btn" onclick="toggleSidebar()">Menu</button>
+			<div>
+				<h1>Warehouse Task</h1>
+				<p>Create, assign, and track operational tasks for your warehouse team.</p>
+			</div>
+		</header>
+
+		<main class="app-content">
+			<section class="table-card">
+				<div class="card-head">
+					<h2>Task Board</h2>
+				</div>
+				<div id="tasksFeedback" class="app-inline-message" aria-live="polite"></div>
+				<form id="taskForm" class="form-grid">
+					<input type="hidden" id="taskId">
+					<label>Title<input type="text" id="taskTitle" required></label>
+					<label>Assignee<input type="text" id="taskAssignee"></label>
+					<label>Status<select id="taskStatus"><option value="todo">Todo</option><option value="in_progress">In Progress</option><option value="done">Done</option></select></label>
+					<label>Priority<select id="taskPriority"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
+					<label>Due Date<input type="date" id="taskDueDate"></label>
+					<label>Description<input type="text" id="taskDescription" placeholder="Task details"></label>
+					<div class="form-actions form-actions-span">
+						<button type="submit" class="ci-btn ci-btn-primary" id="taskSubmitBtn">Save Task</button>
+						<button type="button" class="ci-btn ci-btn-ghost ci-btn-small is-hidden" id="taskCancelEditBtn">Cancel Edit</button>
+					</div>
+				</form>
+
+				<div class="filter-grid">
+					<label>Search<input type="text" id="tasksSearch" placeholder="Search title, assignee"></label>
+					<label>Status<select id="tasksStatusFilter"><option value="">All</option><option value="todo">Todo</option><option value="in_progress">In Progress</option><option value="done">Done</option></select></label>
+					<label>Priority<select id="tasksPriorityFilter"><option value="">All</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
+					<label>Sort<select id="tasksSort"><option value="updatedAt">Last Updated</option><option value="dueDate">Due Date</option><option value="priority">Priority</option></select></label>
+				</div>
+
+				<table class="app-table">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Assignee</th>
+							<th>Status</th>
+							<th>Priority</th>
+							<th>Due</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody id="tasksTableBody">
+						<tr><td colspan="6">Loading tasks...</td></tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</section>
+</div>
+
+<script src="script.js"></script>
+<script>requireAuth();</script>
+</body>
+</html>

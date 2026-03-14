@@ -19,7 +19,8 @@
 			<a href="products.html">Products</a>
 			<a href="stock.html">Operations</a>
 			<a href="orders.html">Move History</a>
-			<a class="active" href="reports.html">Setting / Warehouse</a>
+			<a href="warehouseTasks.html">Warehouse Task</a>
+			<a class="active" href="reports.html">Setting</a>
 		</nav>
 		<div class="side-profile">
 			<h4>Profile Menu</h4>
@@ -32,8 +33,8 @@
 		<header class="app-topbar">
 			<button class="menu-btn" onclick="toggleSidebar()">Menu</button>
 			<div>
-				<h1>Warehouse Settings and Insights</h1>
-				<p>Live settings, warehouse controls, and team task tracking.</p>
+				<h1>Settings</h1>
+				<p>Configure warehouse thresholds, locations, and inventory rules.</p>
 			</div>
 			<button class="ci-btn ci-btn-primary" id="reportsSaveSettingsBtn" type="button">Save Settings</button>
 		</header>
@@ -42,7 +43,6 @@
 			<section class="table-card">
 				<div class="card-head">
 					<h2>Settings</h2>
-					<span class="status-note">Connected to backend settings and warehouse list</span>
 				</div>
 				<div id="reportsFeedback" class="app-inline-message" aria-live="polite"></div>
 				<form id="reportsSettingsForm" class="form-grid">
@@ -84,49 +84,6 @@
 				</div>
 			</section>
 
-			<section class="table-card">
-				<div class="card-head">
-					<h2>Task Board</h2>
-					<span class="status-note">Manage operational tasks with live API data</span>
-				</div>
-				<div id="tasksFeedback" class="app-inline-message" aria-live="polite"></div>
-				<form id="taskForm" class="form-grid">
-					<input type="hidden" id="taskId">
-					<label>Title<input type="text" id="taskTitle" required></label>
-					<label>Assignee<input type="text" id="taskAssignee"></label>
-					<label>Status<select id="taskStatus"><option value="todo">Todo</option><option value="in_progress">In Progress</option><option value="done">Done</option></select></label>
-					<label>Priority<select id="taskPriority"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
-					<label>Due Date<input type="date" id="taskDueDate"></label>
-					<label>Description<input type="text" id="taskDescription" placeholder="Task details"></label>
-					<div class="form-actions form-actions-span">
-						<button type="submit" class="ci-btn ci-btn-primary" id="taskSubmitBtn">Save Task</button>
-						<button type="button" class="ci-btn ci-btn-ghost ci-btn-small is-hidden" id="taskCancelEditBtn">Cancel Edit</button>
-					</div>
-				</form>
-
-				<div class="filter-grid">
-					<label>Search<input type="text" id="tasksSearch" placeholder="Search title, assignee"></label>
-					<label>Status<select id="tasksStatusFilter"><option value="">All</option><option value="todo">Todo</option><option value="in_progress">In Progress</option><option value="done">Done</option></select></label>
-					<label>Priority<select id="tasksPriorityFilter"><option value="">All</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
-					<label>Sort<select id="tasksSort"><option value="updatedAt">Last Updated</option><option value="dueDate">Due Date</option><option value="priority">Priority</option></select></label>
-				</div>
-
-				<table class="app-table">
-					<thead>
-						<tr>
-							<th>Title</th>
-							<th>Assignee</th>
-							<th>Status</th>
-							<th>Priority</th>
-							<th>Due</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody id="tasksTableBody">
-						<tr><td colspan="6">Loading tasks...</td></tr>
-					</tbody>
-				</table>
-			</section>
 		</main>
 	</section>
 </div>

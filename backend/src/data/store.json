@@ -121,6 +121,17 @@
       "stockByLocation": {
         "Main Warehouse": 111
       }
+    },
+    {
+      "id": "prd_1773480976900_341",
+      "name": "steel rod",
+      "sku": "wsdf77",
+      "category": "metal",
+      "uom": "kg",
+      "reorderLevel": 4,
+      "stockByLocation": {
+        "Main Warehouse": 40
+      }
     }
   ],
   "operations": [
