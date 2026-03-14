@@ -6,6 +6,27 @@
       "email": "manager@coreinventory.com",
       "password": "demo123",
       "role": "Inventory Manager"
+    },
+    {
+      "id": "u_1773468920290_128",
+      "name": "Test User",
+      "email": "testuser159619412@gmail.com",
+      "password": "demo123",
+      "role": "Warehouse Staff"
+    },
+    {
+      "id": "u_1773468954399_878",
+      "name": "PRIYANSHI SHEKHADA",
+      "email": "priyanshishekhada.22.cse@iite.indusuni.ac.in",
+      "password": "priyanshi",
+      "role": "Warehouse Staff"
+    },
+    {
+      "id": "u_1773469257550_870",
+      "name": "priyanshi patel",
+      "email": "piyupatelpm2004@gmail.com",
+      "password": "priyanshi",
+      "role": "Warehouse Staff"
     }
   ],
   "warehouses": [

@@ -69,6 +69,45 @@ app.post("/api/auth/login", async (req, res) => {
   });
 });
 
+app.post("/api/auth/signup", async (req, res) => {
+  const { name, email, password } = req.body || {};
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required" });
+  }
+
+  const normalizedEmail = String(email).trim().toLowerCase();
+  const displayName = String(name || "").trim() || normalizedEmail.split("@")[0] || "Warehouse User";
+  if (!normalizedEmail.includes("@")) {
+    return res.status(400).json({ message: "Please provide a valid email" });
+  }
+
+  const db = await loadDb();
+  if (!Array.isArray(db.users)) {
+    db.users = [];
+  }
+
+  const existing = db.users.find((item) => String(item.email).toLowerCase() === normalizedEmail);
+  if (existing) {
+    return res.status(409).json({ message: "Account already exists. Please sign in." });
+  }
+
+  const newUser = {
+    id: makeId("u"),
+    name: displayName,
+    email: normalizedEmail,
+    password: String(password),
+    role: "Warehouse Staff",
+  };
+
+  db.users.push(newUser);
+  await saveDb(db);
+
+  return res.status(201).json({
+    token: `demo-token-${newUser.id}`,
+    user: sanitizeUser(newUser),
+  });
+});
+
 app.post("/api/auth/request-otp", async (req, res) => {
   const { email } = req.body || {};
   if (!email) {

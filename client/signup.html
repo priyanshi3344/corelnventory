@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CoreInventory | Login</title>
+<title>CoreInventory | Sign Up</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -13,44 +13,46 @@
 <main class="auth-shell">
 	<section class="auth-info">
 		<a href="index.html" class="auth-logo">CoreInventory</a>
-		<h1>Sign in to your warehouse workspace</h1>
+		<h1>Create your warehouse workspace account</h1>
 		<p>
-			Built for inventory managers and warehouse staff to control products,
-			receipts, deliveries, internal transfers, and adjustments in one dashboard.
+			Register with your personal or work email to access inventory,
+			receipts, deliveries, internal transfers, and stock analytics.
 		</p>
 		<div class="auth-points">
 			<article>
-				<h3>Authentication</h3>
-				<p>Email/password sign-in with OTP-based password reset.</p>
+				<h3>Quick Signup</h3>
+				<p>Set your profile in seconds with full name, email, and password.</p>
 			</article>
 			<article>
-				<h3>Dashboard Redirect</h3>
-				<p>Successful login lands directly on operational KPI overview.</p>
+				<h3>Instant Access</h3>
+				<p>Account creation signs you in and redirects to the dashboard.</p>
 			</article>
 		</div>
 	</section>
 
 	<section class="auth-card-wrap">
-		<form class="auth-card" onsubmit="loginUser(event)">
-			<h2>Welcome Back</h2>
-			<p>Enter your credentials to continue.</p>
+		<form class="auth-card" onsubmit="event.preventDefault(); signupUser();">
+			<h2>Create Account</h2>
+			<p>Use your email to start managing inventory.</p>
 
-			<label for="email">Work Email</label>
-			<input id="email" name="email" type="email" placeholder="team@coreinventory.com" required>
+			<label for="name">Full Name</label>
+			<input id="name" name="name" type="text" placeholder="Alex Rivera" required>
+
+			<label for="email">Email</label>
+			<input id="email" name="email" type="email" placeholder="you@example.com" required>
 
 			<label for="password">Password</label>
 			<div class="password-field">
-				<input id="password" name="password" type="password" placeholder="Enter your password" required>
+				<input id="password" name="password" type="password" placeholder="Create a password" required>
 				<button type="button" class="password-toggle" onclick="togglePassword('password', this)" aria-label="Show password" title="Show password"></button>
 			</div>
 
 			<div class="auth-actions">
-				<button type="submit" class="ci-btn ci-btn-primary">Sign In</button>
+				<button type="submit" id="signupBtn" class="ci-btn ci-btn-primary">Create Account</button>
 			</div>
 
 			<p id="loginError" class="form-error"></p>
-			<small>New here? <a href="signup.html">Create an account</a>.</small>
-
+			<small>Already have an account? <a href="login.html">Sign in</a>.</small>
 			<small>By continuing, you agree to the warehouse access and audit policy.</small>
 		</form>
 	</section>

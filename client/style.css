@@ -165,22 +165,32 @@ body.landing-page{
 	padding:10px 14px;
 	border-radius:999px;
 	font-size:14px;
+	font-weight:800;
+	transition:transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, background 0.2s ease;
 }
 
 .ci-auth-signup{
 	color:#37595b;
-	background:#eaf5f2;
+	background:linear-gradient(135deg, #eef8f5, #e0f2ec);
 	border:1px solid #c9dfd9;
+	box-shadow:0 6px 14px rgba(63, 117, 107, 0.14);
 }
 
 .ci-auth-login{
 	color:#f5fbf9;
 	background:linear-gradient(130deg, #4f8479, #2f5a54);
+	box-shadow:0 8px 18px rgba(47, 90, 84, 0.28);
 }
 
 .ci-auth-signup:hover,
 .ci-auth-login:hover{
-	filter:brightness(0.97);
+	filter:brightness(0.98);
+	transform:translateY(-1px);
+}
+
+.ci-auth-signup:active,
+.ci-auth-login:active{
+	transform:translateY(0);
 }
 
 .ci-hero{
@@ -713,12 +723,69 @@ body.app-page{
 .filter-grid select,
 .filter-grid input{
 	width:100%;
+	box-sizing:border-box;
 	margin-top:6px;
 	border:1px solid #d5e5df;
 	border-radius:12px;
 	padding:12px 13px;
 	font:inherit;
 	background:#fffdfd;
+}
+
+.password-field{
+	position:relative;
+	margin-top:6px;
+	width:100%;
+}
+
+.password-field input{
+	margin-top:0;
+	padding-right:84px;
+}
+
+.password-toggle{
+	position:absolute;
+	top:50%;
+	right:10px;
+	transform:translateY(-50%);
+	width:40px;
+	height:30px;
+	border:1px solid #c7ddd6;
+	background:#f3faf7;
+	border-radius:999px;
+	padding:0;
+	cursor:pointer;
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+}
+
+.password-toggle:hover{
+	background:#e7f4f0;
+}
+
+.password-toggle::before{
+	content:"";
+	width:14px;
+	height:9px;
+	border:2px solid #2e5f57;
+	border-radius:999px;
+	display:block;
+	box-sizing:border-box;
+}
+
+.password-toggle::after{
+	content:"";
+	position:absolute;
+	width:16px;
+	height:2px;
+	background:#2e5f57;
+	transform:rotate(-35deg);
+	border-radius:2px;
+}
+
+.password-toggle.is-visible::after{
+	display:none;
 }
 
 .auth-card input:focus,
@@ -737,9 +804,46 @@ body.app-page{
 	gap:10px;
 }
 
+.auth-actions .ci-btn,
+.auth-actions button.ci-btn{
+	width:100%;
+	min-width:0;
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	padding:13px 18px;
+	border-radius:14px;
+	font-size:18px;
+	letter-spacing:0.3px;
+}
+
+.auth-actions .ci-btn-primary,
+.auth-actions button.ci-btn-primary{
+	background:linear-gradient(138deg, #5a9387, #2d5a53);
+	box-shadow:0 14px 28px rgba(45, 90, 83, 0.32);
+}
+
+.auth-actions .ci-btn-primary:hover,
+.auth-actions button.ci-btn-primary:hover{
+	background:linear-gradient(138deg, #4d857a, #264d46);
+	transform:translateY(-1px);
+}
+
+.auth-actions .ci-btn-primary:active,
+.auth-actions button.ci-btn-primary:active{
+	transform:translateY(0);
+}
+
 .auth-card small{
 	margin-top:6px;
 	color:#71809c;
+}
+
+.form-error{
+	margin-top:8px;
+	font-size:0.85rem;
+	color:#c0392b;
+	min-height:1.2em;
 }
 
 .app-shell{
