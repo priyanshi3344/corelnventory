@@ -110,6 +110,17 @@
       "stockByLocation": {
         "Main Warehouse": 15
       }
+    },
+    {
+      "id": "prd_1773478368612_800",
+      "name": "steel rod",
+      "sku": "stl 0012",
+      "category": "metal",
+      "uom": "kg",
+      "reorderLevel": 3,
+      "stockByLocation": {
+        "Main Warehouse": 111
+      }
     }
   ],
   "operations": [
